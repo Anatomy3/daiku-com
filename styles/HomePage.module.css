@@ -159,6 +159,10 @@
     text-align: center;
   }
 
+  .logo {
+    display: none; /* Hapus logo pada mode mobile */
+  }
+
   .mainContent {
     margin-top: 20px;
     text-align: center;
@@ -195,16 +199,22 @@
   }
 
   .textOverlay {
-    flex-direction: column;
+    display: flex;
+    flex-direction: column; /* Ubah menjadi kolom pada mobile */
+    justify-content: center;
+    align-items: center;
     padding: 10px 0;
+    margin-top: 30px; /* Geser teks lebih ke bawah */
   }
 
   .textItem {
+    text-align: center;
     margin-bottom: 10px;
+    width: 100%; /* Pastikan tiap elemen memenuhi lebar */
   }
 
   .textItem h3 {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .textItem p {
