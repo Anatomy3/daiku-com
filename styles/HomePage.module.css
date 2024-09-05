@@ -146,6 +146,29 @@
   margin: 5px 0 0;
   font-size: 14px;
 }
+/* Gaya untuk link WhatsApp */
+.whatsappLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px; /* Jarak antara ikon dan teks */
+  text-decoration: none;
+  color: #DCDCDC;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #25D366; /* Warna hijau khas WhatsApp */
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.whatsappLink i {
+  font-size: 24px; /* Ukuran ikon WhatsApp */
+}
+
+.whatsappLink:hover {
+  background-color: #1EBE55; /* Warna hijau lebih gelap saat hover */
+}
+
 @media only screen and (max-width: 768px) {
   .homepage {
     flex-direction: column;
@@ -163,7 +186,7 @@
   }
 
   .mainContent {
-    margin-top: 20px;
+    margin-top: 0px;
     text-align: center;
   }
 
@@ -193,7 +216,7 @@
   }
 
   .imageOverlay img {
-    height: 300px;
+    height: 320px;
     object-fit: cover;
   }
 
