@@ -27,7 +27,7 @@
 .contactInfo {
     text-align: right; /* Menyelaraskan teks ke kanan */
     max-width: 450px; /* Membatasi lebar maksimum agar teks tidak terlalu lebar */
-    padding-right: 20px; /* Menggeser teks lebih ke kiri dari sebelumnya */
+    padding-right: 170px; /* Menggeser teks lebih ke kiri dari sebelumnya */
 }
 
 .title {
