@@ -103,8 +103,8 @@
 
     .rightContainer {
         width: 100%; /* Biarkan map mengambil lebar penuh */
-        height: auto;
-        margin-top: 20px; /* Beri jarak antara info kontak dan map */
+        height: 90%;
+        margin-top: 0px; /* Beri jarak antara info kontak dan map */
         position: relative; /* Hapus posisi absolut pada mobile */
         background-color: #E9C13F; /* Kembalikan background kuning di bawah peta */
         display: flex;
@@ -114,8 +114,8 @@
     }
 
     .mapContainer {
-        width: 80%; /* Perkecil lebar map menjadi 80% dari layar */
-        height: 250px; /* Sesuaikan tinggi map menjadi 250px */
+        width: 82%; /* Perkecil lebar map menjadi 80% dari layar */
+        height: 270px; /* Sesuaikan tinggi map menjadi 250px */
         position: relative; /* Hapus posisi absolut */
         transform: none; /* Hapus transformasi */
         margin-left: 40px; /* Geser map sedikit ke kanan */
