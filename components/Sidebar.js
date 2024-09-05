@@ -39,21 +39,27 @@ const Sidebar = ({ scrollToSection }) => {
           className={`${styles.iconWrapper} ${router.pathname === '/' ? styles.active : ''}`}
           onClick={() => handleClick('/')}
         >
-          <i className={`${styles.icon} fas fa-home`}></i>
+          <div className={styles.iconBackground}>
+            <i className={`${styles.icon} fas fa-home`}></i>
+          </div>
           <span className={styles.text}>Beranda</span>
         </div>
         <div
           className={`${styles.iconWrapper} ${router.pathname === '/' ? styles.active : ''}`}
           onClick={() => handleClick('/', 'projectsSection')}
         >
-          <i className={`${styles.icon} fas fa-briefcase`}></i>
+          <div className={styles.iconBackground}>
+            <i className={`${styles.icon} fas fa-briefcase`}></i>
+          </div>
           <span className={styles.text}>Projects</span>
         </div>
         <div
           className={`${styles.iconWrapper} ${router.pathname === '/contact' ? styles.active : ''}`}
           onClick={() => handleClick('/contact')}
         >
-          <i className={`${styles.icon} fas fa-envelope`}></i>
+          <div className={styles.iconBackground}>
+            <i className={`${styles.icon} fas fa-envelope`}></i>
+          </div>
           <span className={styles.text}>Contact</span>
         </div>
       </div>
