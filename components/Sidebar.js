@@ -7,9 +7,14 @@ const Sidebar = ({ scrollToSection }) => {
   const router = useRouter();
 
   const handleClick = (path, section = null) => {
-    if (router.pathname === '/') {
-      scrollToSection(section); // Scroll ke bagian Projects jika di halaman beranda
+    if (path === '/' && section === 'projectsSection') {
+      // Scroll ke bagian Projects di halaman yang sama
+      scrollToSection('projectsSection');
+    } else if (router.pathname === '/') {
+      // Jika di halaman home, scroll ke bagian tertentu
+      scrollToSection(section);
     } else {
+      // Jika di halaman lain, navigasi ke path yang diberikan
       router.push({
         pathname: path,
         query: section ? { section } : {},
@@ -46,7 +51,7 @@ const Sidebar = ({ scrollToSection }) => {
         </div>
         <div
           className={`${styles.iconWrapper} ${router.pathname === '/' ? styles.active : ''}`}
-          onClick={() => handleClick('/', 'projectsSection')}
+          onClick={() => handleClick('/', 'projectsSection')}  // Scroll ke bagian Projects
         >
           <div className={styles.iconBackground}>
             <i className={`${styles.icon} fas fa-briefcase`}></i>
