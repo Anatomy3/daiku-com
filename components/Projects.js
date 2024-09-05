@@ -1,60 +1,107 @@
-import React, { useRef } from 'react';
-import styles from '../styles/HomePage.module.css';
-import Sidebar from './Sidebar';
+import React, { useState, useRef, useEffect } from 'react';
+import styles from '../styles/Projects.module.css';
 
-const HomePage = () => {
-  const scrollToRef = useRef(null); // Inisialisasi ref
+const Projects = () => {
+  const [currentCategory, setCurrentCategory] = useState('rumah');
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [mainImage, setMainImage] = useState('/daiku/homepage.jpg'); 
+  const [imagesPerSlide, setImagesPerSlide] = useState(15);
 
-  const scrollToSection = () => {
-    scrollToRef.current.scrollIntoView({ behavior: 'smooth' }); // Fungsi untuk scroll ke ref
+  const projectsSectionRef = useRef(null); // Buat referensi untuk elemen projects
+
+  const handleDotClick = (index) => {
+    setCurrentSlide(index);
   };
 
+  const handleCategoryChange = (category) => {
+    setCurrentCategory(category);
+    setCurrentSlide(0); 
+    setMainImage(`/daiku/${category}/${category} (1).jpg`);
+  };
+
+  const handleImageClick = (imageUrl) => {
+    setMainImage(imageUrl);
+  };
+
+  const categories = {
+    rumah: Array.from({ length: 75 }, (_, index) => `/daiku/rumah/rumah (${index + 1}).jpg`),
+    kantor: Array.from({ length: 47 }, (_, index) => `/daiku/kantor/kantor (${index + 1}).jpg`),
+    usaha: Array.from({ length: 151 }, (_, index) => `/daiku/usaha/usaha (${index + 1}).jpg`)
+  };
+
+  useEffect(() => {
+    const updateImagesPerSlide = () => {
+      if (window.innerWidth <= 768) {
+        setImagesPerSlide(12); 
+      } else {
+        setImagesPerSlide(15); 
+      }
+    };
+
+    updateImagesPerSlide();
+
+    window.addEventListener('resize', updateImagesPerSlide);
+
+    return () => {
+      window.removeEventListener('resize', updateImagesPerSlide);
+    };
+  }, []);
+
+  const currentImages = categories[currentCategory].slice(
+    currentSlide * imagesPerSlide,
+    (currentSlide + 1) * imagesPerSlide
+  );
+  const totalSlides = Math.ceil(categories[currentCategory].length / imagesPerSlide);
+
   return (
-    <div className={styles.homepage}>
-      <Sidebar scrollToSection={scrollToSection} /> {/* Mengoper fungsi scroll */}
+    <div className={styles.projectsPage}>
       <aside className={styles.sidebar}>
-        <img src="/daiku/logo.png" alt="Logo" className={styles.logo} />
-        <div className={styles.mainContent}>
-          <h1>
-            <span className={styles.highlight}>Inter</span>ior design
-          </h1>
-          <p>Kami akan menciptakan desain interior yang paling sesuai untuk rumah, bisnis, dan kantor Anda. Dapatkan tampilan interior yang benar-benar baru.</p>
-          
-          {/* Ganti tautan Learn More dengan WhatsApp */}
-          <a href="https://wa.me/628117597766" target="_blank" className={styles.whatsappLink} rel="noopener noreferrer">
-            <i className="fab fa-whatsapp"></i> Hubungi
-          </a>
+        <div className={styles.imageGrid}>
+          {currentImages.map((src, index) => (
+            <img
+              key={index}
+              src={src}
+              alt={`Image ${index + 1}`}
+              onClick={() => handleImageClick(src)}
+              className={styles.sidebarImage}
+            />
+          ))}
         </div>
-        <div className={styles.socialIcons}>
-          <a href="https://www.tiktok.com/@d.a.i.ku.pekanbaru?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-tiktok"></i>
-          </a>
-          <a href="https://www.threads.net/@daikuinterior?xmt=AQGzinU5_ySnDqvyuCDhgzxaECeWrfJvua88MAWE-RL6vCE" target="_blank" rel="noopener noreferrer">
-            <img src="/daiku/threads.png" alt="Threads Icon" className={styles.iconImage} />
-          </a>
-          <a href="https://www.instagram.com/daikuinterior?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-instagram"></i>
-          </a>
+        <div className={styles.dotsContainer}>
+          {Array.from({ length: totalSlides }).map((_, index) => (
+            <span
+              key={index}
+              className={`${styles.dot} ${currentSlide === index ? styles.activeDot : ''}`}
+              onClick={() => handleDotClick(index)}
+            ></span>
+          ))}
         </div>
       </aside>
 
-      {/* Section yang akan discroll */}
-      <div className={styles.mainImage} ref={scrollToRef}>
-        <div className={styles.imageOverlay}>
-          <img src="/daiku/homepage.jpg" alt="Desain Interior" />
+      {/* Gunakan ref untuk bagian Projects */}
+      <div ref={projectsSectionRef} className={styles.mainContent}>
+        <img src={mainImage} alt="Main Content" className={`${styles.mainImage} ${styles.largeImage}`} />
+
+        <div className={styles.description}>
+          <h2>Cara Baru untuk</h2>
+          <h3>Mendesain Rumah Anda</h3>
+          <p>Kami menghilangkan kesalahpahaman terbesar tentang perencanaan dan desain rumah yang efisien dan estetis.</p>
         </div>
-        <div className={styles.textOverlay}>
-          <div className={styles.textItem}>
-            <h3>Furniture Terbaik</h3>
-            <p>Pilihan furnitur kami yang dikurasi menawarkan perpaduan sempurna antara gaya dan kenyamanan, dirancang untuk meningkatkan ruang hidup Anda.</p>
-          </div>
-          <div className={styles.textItem}>
-            <h3>Interior Terbaik</h3>
-            <p>Kami mendesain interior yang mencerminkan kepribadian unik Anda, menciptakan keseimbangan harmonis antara estetika dan fungsionalitas.</p>
-          </div>
-          <div className={styles.textItem}>
-            <h3>Desain Modern</h3>
-            <p>Desain modern kami menggabungkan garis-garis bersih dan elemen minimalis untuk menciptakan ruang yang fungsional dan elegan.</p>
+
+        <div className={styles.photoGallery}>
+          <div className={styles.photos}>
+            <div className={styles.photoItem}>
+              <img src="/daiku/rumah/rumah (1).jpg" alt="RUMAH" onClick={() => handleCategoryChange('rumah')} />
+              <div className={styles.photoLabel}>RUMAH</div>
+            </div>
+            <div className={styles.photoItem}>
+              <img src="/daiku/kantor/kantor (1).jpg" alt="KANTOR" onClick={() => handleCategoryChange('kantor')} />
+              <div className={styles.photoLabel}>KANTOR</div>
+            </div>
+            <div className={styles.photoItem}>
+              <img src="/daiku/usaha/usaha (1).jpg" alt="USAHA" onClick={() => handleCategoryChange('usaha')} />
+              <div className={styles.photoLabel}>USAHA</div>
+            </div>
           </div>
         </div>
       </div>
@@ -62,4 +109,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Projects;
