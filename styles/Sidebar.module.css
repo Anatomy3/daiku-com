@@ -79,7 +79,7 @@
 @media (max-width: 768px) {
   .sidebar {
     width: 100%; /* Sidebar mengambil lebar penuh layar */
-    height: 72px;
+    height: 60px;
     position: fixed;
     top: 0;
     left: 0;
@@ -125,12 +125,12 @@
   }
 
   .showMenu {
-    right: 50px; /* Geser ikon tepat di bawah hamburger */
+    right: 30px; /* Geser ikon tepat di bawah hamburger */
   }
 
   .iconWrapper {
-    width: 72px;
-    margin: 10px 0; /* Jarak antar ikon */
+    width: 0px;
+    margin: 5px 0; /* Jarak antar ikon */
   }
 
   .iconBackground {
@@ -147,6 +147,6 @@
   .text {
     display: block; /* Tampilkan teks di bawah ikon */
     font-size: 12px;
-    color: #1a1a1a;
+    color: #ffffff;
   }
 }
