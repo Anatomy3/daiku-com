@@ -1,0 +1,140 @@
+.contactContainer {
+    display: flex;
+    min-height: 100vh;
+    background-color: #1a1a1a; /* Mengubah latar belakang container menjadi hitam */
+    box-sizing: border-box;
+    border-top: 4px solid #E9C13F; /* Added top border in the specified color */
+}
+
+.leftContainer {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    justify-content: center; /* Menyelaraskan konten ke tengah */
+    align-items: center;
+    background-color: #1a1a1a; /* Latar belakang hitam untuk bagian kiri */
+}
+
+.rightContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E9C13F; /* Latar belakang kuning untuk bagian kanan tetap */
+    position: relative; /* Posisi relatif untuk konteks pemposisian map */
+}
+
+.contactInfo {
+    text-align: right; /* Menyelaraskan teks ke kanan */
+    max-width: 450px; /* Membatasi lebar maksimum agar teks tidak terlalu lebar */
+    padding-right: 20px; /* Menggeser teks lebih ke kiri dari sebelumnya */
+}
+
+.title {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ffc107; /* Warna kuning tetap */
+}
+
+.break {
+    display: block; /* Membuat "INTERIOR" berada di baris baru */
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Menyelaraskan ikon dan teks ke kanan */
+    margin-bottom: 15px;
+}
+
+.contactItem p {
+    margin: 0;
+    font-size: 18px;
+    color: #DCDCDC; /* Ubah warna teks menjadi #DCDCDC */
+    margin-right: 10px; /* Jarak antara teks dan ikon */
+}
+
+.contactItem i {
+    font-size: 24px; /* Ukuran ikon */
+    color: #ffc107; /* Warna ikon kuning tetap */
+}
+
+.mapContainer {
+    width: 400px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(-50%, -50%); /* Menggeser peta ke kiri dengan transform */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mapContainer iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    z-index: 2; /* Pastikan peta berada di depan bayangan */
+    position: relative;
+    left: -30px; /* Geser peta lebih ke kiri tanpa mengubah posisi bayangan */
+}
+
+.mapShadow {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 400px;
+    height: 500px;
+    background-color: #FFDC7F; /* Warna bayangan kuning tetap */
+    z-index: 1; /* Pastikan bayangan berada di belakang peta */
+}
+/* Media query untuk mode mobile */
+@media only screen and (max-width: 768px) {
+    .contactContainer {
+        flex-direction: column; /* Ubah layout ke kolom pada mobile */
+    }
+
+    .leftContainer {
+        padding: 20px; /* Kurangi padding pada mobile */
+    }
+
+    .rightContainer {
+        width: 100%; /* Biarkan map mengambil lebar penuh */
+        height: auto;
+        margin-top: 20px; /* Beri jarak antara info kontak dan map */
+        position: relative; /* Hapus posisi absolut pada mobile */
+        background-color: #E9C13F; /* Kembalikan background kuning di bawah peta */
+        display: flex;
+        justify-content: flex-start; /* Geser konten sedikit ke kiri */
+        padding-left: 20px; /* Kurangi padding kiri agar map sedikit ke kanan */
+        align-items: center;
+    }
+
+    .mapContainer {
+        width: 80%; /* Perkecil lebar map menjadi 80% dari layar */
+        height: 250px; /* Sesuaikan tinggi map menjadi 250px */
+        position: relative; /* Hapus posisi absolut */
+        transform: none; /* Hapus transformasi */
+        margin-left: 40px; /* Geser map sedikit ke kanan */
+    }
+
+    .mapShadow {
+        display: none; /* Sembunyikan bayangan pada mobile untuk kesederhanaan */
+    }
+
+    .contactInfo {
+        text-align: center; /* Ubah teks menjadi center pada mobile */
+        padding-right: 0; /* Hapus padding kanan */
+    }
+
+    .contactItem {
+        justify-content: center; /* Pusatkan teks dan ikon */
+    }
+
+    .title {
+        font-size: 36px; /* Kurangi ukuran font untuk mobile */
+    }
+}

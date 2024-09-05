@@ -1,0 +1,223 @@
+.projectsPage {
+  display: flex;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+
+.sidebar {
+  background-color: #E9C13F;
+  color: #fff;
+  width: 30%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2; /* Pastikan sidebar berada di depan elemen lain */
+}
+
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 kolom untuk desktop */
+  grid-template-rows: repeat(5, 1fr);    /* 5 baris untuk total 15 gambar */
+  gap: 10px;
+}
+
+.sidebarImage {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border: 1px solid #fff;
+}
+
+.dotsContainer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #1a1a1a;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.activeDot {
+  background-color: #fff;
+}
+
+.mainContent {
+  flex: 1;
+  position: relative;
+  background-color: #333;
+  color: #fff;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 0; /* Pastikan main content tidak menghalangi sidebar */
+}
+
+.mainImage {
+  width: 100%; /* Gambar utama memenuhi lebar container */
+  height: auto;
+  max-height: 80vh; /* Batasi tinggi gambar agar tidak terlalu besar */
+  object-fit: contain; /* Pastikan gambar tetap proporsional */
+  margin-bottom: 20px; /* Memberikan jarak di bawah gambar utama */
+}
+
+.description {
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  max-width: 400px;
+}
+
+.description h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #ccc;
+}
+
+.description h3 {
+  margin: 10px 0;
+  font-size: 36px;
+  color: #fff;
+}
+
+.description p {
+  color: #ccc;
+  font-size: 14px;
+}
+
+.photoGallery {
+  position: absolute;
+  bottom: 20px;
+  left: 30%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.photos {
+  display: flex;
+  flex-direction: row;
+  gap: 15px; /* Menambahkan jarak antar gambar di galeri */
+}
+
+.photoItem {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Efek zoom pada gambar saat di-hover */
+}
+
+.photoItem img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+
+.photoItem:hover {
+  transform: scale(1.05); /* Zoom in saat gambar di-hover */
+}
+
+.photoLabel {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.8); /* Background color semi transparan */
+  color: #000; /* Warna teks hitam */
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Media query untuk mode mobile */
+@media only screen and (max-width: 768px) {
+  .projectsPage {
+    flex-direction: column; /* Ubah layout ke kolom pada mobile */
+    align-items: center; /* Pastikan seluruh halaman terpusat */
+  }
+
+  .sidebar {
+    width: 100%; /* Sidebar mengambil lebar penuh */
+    order: 0; /* Sidebar berada di atas gambar besar */
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start; /* Pastikan konten sidebar terarah ke kiri */
+  }
+
+  .imageGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 kolom untuk mobile */
+    gap: 5px;
+    justify-items: flex-start; /* Gambar dimulai dari kiri */
+  }
+
+  .sidebarImage {
+    width: 80px; /* Set lebar yang konsisten untuk semua gambar */
+    height: 80px; /* Set tinggi yang konsisten untuk semua gambar */
+    object-fit: cover; /* Pastikan gambar sesuai dengan ukuran kotak tanpa distorsi */
+    border: 1px solid #fff; /* Tambahkan border untuk memastikan gambar terpisah dengan jelas */
+  }
+
+  .mainContent {
+    order: 1; /* Gambar besar berada di bawah sidebar */
+    padding: 10px;
+  }
+
+  .mainImage {
+    width: 100vw; /* Gambar besar memenuhi lebar penuh layar */
+    height: auto;
+    max-height: 50vh; /* Batasi tinggi gambar agar tidak terlalu besar */
+    margin-bottom: 10px; /* Tambahkan jarak bawah untuk dot */
+  }
+
+  .dotsContainer {
+    margin-top: -160px; /* Geser dot lebih dekat ke bawah gambar */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .description {
+    display: none; /* Sembunyikan deskripsi di mode mobile */
+  }
+
+  .photoGallery {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    transform: none;
+    margin-top: 20px;
+  }
+
+  .photos {
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .photoItem img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .photoLabel {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,330 @@
+.aboutPage {
+  display: flex;
+  height: 100vh;
+  background-color: #1a1a1a;
+  font-family: 'Roboto', sans-serif;
+  color: #DCDCDC;
+}
+
+.imageContainer {
+  flex: 1;
+  display: flex;
+  gap: 15px; /* Menambahkan jarak antara kedua gambar/video */
+  overflow: hidden;
+  padding-left: 20px; /* Tambahkan padding kiri agar gambar/video tidak menempel ke tepi */
+  align-items: center; /* Memastikan gambar/video terpusat secara vertikal */
+}
+
+.image, .video {
+  width: calc(45% - 7.5px); /* Kurangi lebar gambar/video sedikit untuk memberi ruang pada gap */
+  height: 70vh; /* Menyesuaikan tinggi gambar/video menjadi lebih tinggi */
+  object-fit: cover;
+}
+  
+  .textContainer {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .textContainer h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #DCDCDC;
+  }
+  
+  .textContainer p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    max-width: 400px;
+  }
+  
+  .exploreButton {
+    background-color: #E9C13F;
+    color: #1a1a1a;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+  }
+  
+  .exploreButton:hover {
+    background-color: #d1a33f;
+  }
+  
+  .textContainer::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #E9C13F;
+    margin-bottom: 20px;
+  }
+  .aboutPage {
+    display: flex;
+    height: 100vh;
+    background-color: #1a1a1a;
+    font-family: 'Roboto', sans-serif;
+    color: #DCDCDC;
+  }
+  
+  .imageContainer {
+    flex: 1;
+    display: flex;
+    gap: 15px; /* Menambahkan jarak antara kedua gambar */
+    overflow: hidden;
+    padding-left: 20px; /* Tambahkan padding kiri agar gambar tidak menempel ke tepi */
+    align-items: center; /* Memastikan gambar terpusat secara vertikal */
+  }
+  
+  .image {
+    width: calc(45% - 7.5px); /* Kurangi lebar gambar sedikit untuk memberi ruang pada gap */
+    height: 70vh; /* Menyesuaikan tinggi gambar menjadi lebih tinggi */
+    object-fit: cover;
+  }
+  
+  .textContainer {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .textContainer h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #DCDCDC;
+  }
+  
+  .textContainer p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    max-width: 400px;
+  }
+  
+  .exploreButton {
+    background-color: #E9C13F;
+    color: #1a1a1a;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+  }
+  
+  .exploreButton:hover {
+    background-color: #d1a33f;
+  }
+  
+  .textContainer::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #E9C13F;
+    margin-bottom: 20px;
+  }
+  .aboutPage {
+    display: flex;
+    height: 100vh;
+    background-color: #1a1a1a;
+    font-family: 'Roboto', sans-serif;
+    color: #DCDCDC;
+  }
+  
+  .imageContainer {
+    flex: 1;
+    display: flex;
+    gap: 15px; /* Menambahkan jarak antara kedua gambar */
+    overflow: hidden;
+    padding-left: 20px; /* Tambahkan padding kiri agar gambar tidak menempel ke tepi */
+    align-items: center; /* Memastikan gambar terpusat secara vertikal */
+  }
+  
+  .image {
+    width: calc(45% - 7.5px); /* Kurangi lebar gambar sedikit untuk memberi ruang pada gap */
+    height: 70vh; /* Menyesuaikan tinggi gambar menjadi lebih tinggi */
+    object-fit: cover;
+  }
+  
+  .textContainer {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .textContainer h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #DCDCDC;
+  }
+  
+  .textContainer p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    max-width: 400px;
+  }
+  
+  .exploreButton {
+    background-color: #E9C13F;
+    color: #1a1a1a;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+  }
+  
+  .exploreButton:hover {
+    background-color: #d1a33f;
+  }
+  
+  .textContainer::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #E9C13F;
+    margin-bottom: 20px;
+  }
+  .aboutPage {
+    display: flex;
+    height: 100vh;
+    background-color: #1a1a1a;
+    font-family: 'Roboto', sans-serif;
+    color: #DCDCDC;
+  }
+  
+  .imageContainer {
+    flex: 1;
+    display: flex;
+    gap: 15px; /* Menambahkan jarak antara kedua gambar */
+    overflow: hidden;
+    padding-left: 20px; /* Tambahkan padding kiri agar gambar tidak menempel ke tepi */
+    align-items: center; /* Memastikan gambar terpusat secara vertikal */
+  }
+  
+  .image {
+    width: calc(45% - 7.5px); /* Kurangi lebar gambar sedikit untuk memberi ruang pada gap */
+    height: 70vh; /* Menyesuaikan tinggi gambar menjadi lebih tinggi */
+    object-fit: cover;
+  }
+  
+  .textContainer {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .textContainer h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #DCDCDC;
+  }
+  
+  .textContainer p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    max-width: 400px;
+  }
+  
+  .exploreButton {
+    background-color: #E9C13F;
+    color: #1a1a1a;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+  }
+  
+  .exploreButton:hover {
+    background-color: #d1a33f;
+  }
+  
+  .textContainer::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #E9C13F;
+    margin-bottom: 20px;
+  }
+  @media only screen and (max-width: 768px) {
+    .aboutPage {
+      flex-direction: column; /* Ubah ke arah kolom untuk semua komponen */
+      align-items: center;
+      text-align: center;
+      height: auto;
+      padding: 20px;
+    }
+  
+    /* Untuk komponen kedua khusus */
+    .aboutPage:nth-child(2) {
+      display: flex;
+      flex-direction: column; /* Pastikan arah layoutnya kolom */
+    }
+  
+    /* Atur gambar tetap di atas teks untuk komponen kedua */
+    .aboutPage:nth-child(2) .imageContainer {
+      order: -1; /* Menampilkan gambar di atas teks */
+    }
+  
+    .imageContainer {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      width: 100%; /* Lebar penuh untuk container gambar */
+      padding: 0;
+    }
+  
+    .image, .video {
+      width: 48%; /* Masing-masing gambar/video menggunakan 48% lebar agar muat berdampingan */
+      height: auto;
+      object-fit: cover;
+    }
+  
+    .textContainer {
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+    }
+  
+    .textContainer h1 {
+      font-size: 32px;
+    }
+  
+    .textContainer p {
+      font-size: 14px;
+    }
+  
+    .exploreButton {
+      font-size: 14px;
+      padding: 10px 20px;
+    }
+  
+    .textContainer::before {
+      width: 50px;
+    }
+  }
+  
