@@ -146,7 +146,6 @@
   margin: 5px 0 0;
   font-size: 14px;
 }
-
 @media only screen and (max-width: 768px) {
   .homepage {
     flex-direction: column;
@@ -155,7 +154,7 @@
 
   .sidebar {
     width: 100%;
-    padding: 20px;
+    padding: 80px;
     text-align: center;
   }
 
@@ -198,26 +197,27 @@
     object-fit: cover;
   }
 
+  /* Geser teks ke kiri */
   .textOverlay {
     display: flex;
-    flex-direction: column; /* Ubah menjadi kolom pada mobile */
-    justify-content: center;
+    justify-content: flex-start; /* Pindahkan elemen judul ke kiri */
     align-items: center;
-    padding: 10px 0;
-    margin-top: 30px; /* Geser teks lebih ke bawah */
+    padding: 10px 20px; /* Tambahkan padding kiri */
+    background: rgba(0, 0, 0, 0.4);
   }
 
   .textItem {
-    text-align: center;
-    margin-bottom: 10px;
-    width: 100%; /* Pastikan tiap elemen memenuhi lebar */
+    margin: 0 10px;
+    text-align: left; /* Teks rata kiri */
+    color: #DCDCDC;
   }
 
   .textItem h3 {
-    font-size: 14px;
+    font-size: 13px;
   }
 
+  /* Sembunyikan paragraf di bawah judul hanya di mode mobile */
   .textItem p {
-    font-size: 12px;
+    display: none;
   }
 }
