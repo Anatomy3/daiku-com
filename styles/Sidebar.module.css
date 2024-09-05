@@ -24,10 +24,9 @@
   align-items: center;
   justify-content: center;
   position: fixed;
-  top: 5px; /* Geser ikon lebih dekat ke bagian atas */
+  top: 72px;
   right: -250px; /* Awalnya tersembunyi di luar layar */
   transition: right 0.5s ease-in-out;
-  flex-direction: row; /* Tata letak horizontal saat menu terbuka */
 }
 
 .showMenu {
@@ -40,26 +39,30 @@
   align-items: center;
   justify-content: center;
   width: 72px;
-  height: 72px;
-  margin: 0 2px; /* Kurangi jarak antar ikon lebih kecil */
+  margin: 0 10px;
   transition: background-color 0.3s ease, color 0.3s ease;
   box-sizing: border-box;
   cursor: pointer;
 }
 
+.iconBackground {
+  background-color: #FFDC7F; /* Warna latar belakang bulat */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
 .icon {
   font-size: 24px;
   color: #1a1a1a;
-  margin-bottom: 3px;
 }
 
 .iconWrapper.active {
   color: #ffffff;
-  padding: 10px 0;
-}
-
-.iconWrapper:hover {
-  background-color: transparent;
 }
 
 .text {
@@ -110,27 +113,40 @@
 
   .iconContainer {
     position: fixed;
-    top: 5px; /* Geser ikon lebih ke atas di mode mobile */
+    top: 72px;
     right: -250px; /* Awalnya tersembunyi di luar layar */
     width: auto;
     background-color: transparent; /* Hapus background kuning */
     transition: right 0.5s ease-in-out;
     z-index: 9999;
-    flex-direction: row; /* Tata letak horizontal */
+    flex-direction: column; /* Tata letak vertikal */
     justify-content: center;
+    align-items: center;
   }
 
   .showMenu {
-    right: 50px; /* Geser ikon tepat di sebelah kiri hamburger */
+    right: 50px; /* Geser ikon tepat di bawah hamburger */
   }
 
   .iconWrapper {
     width: 72px;
-    height: 72px;
-    margin: 0 2px; /* Kurangi jarak antar ikon lebih kecil */
+    margin: 10px 0; /* Jarak antar ikon */
+  }
+
+  .iconBackground {
+    background-color: #FFDC7F; /* Warna latar belakang bulat */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
   }
 
   .text {
-    display: none; /* Sembunyikan teks di mode mobile */
+    display: block; /* Tampilkan teks di bawah ikon */
+    font-size: 12px;
+    color: #1a1a1a;
   }
 }
