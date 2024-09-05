@@ -1,7 +1,7 @@
 .sidebar {
   width: 72px;
   height: 100vh;
-  background-color: #FFDC7F; /* Ubah warna sidebar menjadi #FFDC7F */
+  background-color: #FFDC7F;
   position: fixed;
   top: 0;
   left: 0;
@@ -21,9 +21,17 @@
 .iconContainer {
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* Geser tombol ke kanan */
+  align-items: center;
   justify-content: center;
-  flex-grow: 1;
+  position: fixed;
+  top: 5px; /* Geser ikon lebih dekat ke bagian atas */
+  right: -250px; /* Awalnya tersembunyi di luar layar */
+  transition: right 0.5s ease-in-out;
+  flex-direction: row; /* Tata letak horizontal saat menu terbuka */
+}
+
+.showMenu {
+  right: 50px; /* Tampilkan ikon tepat di sebelah kiri hamburger */
 }
 
 .iconWrapper {
@@ -33,7 +41,7 @@
   justify-content: center;
   width: 72px;
   height: 72px;
-  margin: 10px 0;
+  margin: 0 2px; /* Kurangi jarak antar ikon lebih kecil */
   transition: background-color 0.3s ease, color 0.3s ease;
   box-sizing: border-box;
   cursor: pointer;
@@ -41,77 +49,88 @@
 
 .icon {
   font-size: 24px;
-  color: #1a1a1a; /* Warna tombol menjadi #1a1a1a */
-  margin-bottom: 5px;
+  color: #1a1a1a;
+  margin-bottom: 3px;
 }
 
 .iconWrapper.active {
-  color: #ffffff; /* Warna teks putih saat aktif */
-  border-radius: 8px;
+  color: #ffffff;
   padding: 10px 0;
 }
 
 .iconWrapper:hover {
-  background-color: #E8EAED;
-  border-radius: 8px;
+  background-color: transparent;
 }
 
 .text {
   font-size: 12px;
-  color: #1a1a1a; /* Warna teks menjadi #1a1a1a */
+  color: #1a1a1a;
   text-align: center;
+}
+
+.hamburgerIcon {
+  display: none;
 }
 
 /* Media Query for Mobile */
 @media (max-width: 768px) {
   .sidebar {
-    width: 100%;
+    width: 100%; /* Sidebar mengambil lebar penuh layar */
     height: 72px;
     position: fixed;
-    top: 0; /* Pindahkan sidebar ke bagian atas */
+    top: 0;
     left: 0;
     flex-direction: row;
     padding: 0;
-    background-color: #FFDC7F; /* Pastikan background tetap sama di mobile */
-    border-radius: 0 0 30px 30px; /* Membulatkan sudut bawah saja */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    justify-content: space-between; /* Membuat logo dan tombol di tempat masing-masing */
+    background-color: #FFDC7F;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
   }
 
   .logoContainer {
-    display: flex; /* Tampilkan logo hanya di mobile */
-    justify-content: center;
-    margin-left: 20px; /* Berikan jarak antara logo dan tombol */
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 10px;
   }
 
   .logo {
-    width: 40px; /* Ukuran logo */
+    width: 90px;
     height: auto;
   }
 
+  .hamburgerIcon {
+    display: block; /* Tampilkan hamburger icon di mobile */
+    padding-right: 10px;
+    margin-right: 10px;
+    font-size: 28px;
+    color: #1a1a1a;
+    cursor: pointer;
+  }
+
   .iconContainer {
-    flex-direction: row;
-    justify-content: flex-end; /* Geser tombol ke kanan pada mobile */
-    width: 100%;
+    position: fixed;
+    top: 5px; /* Geser ikon lebih ke atas di mode mobile */
+    right: -250px; /* Awalnya tersembunyi di luar layar */
+    width: auto;
+    background-color: transparent; /* Hapus background kuning */
+    transition: right 0.5s ease-in-out;
+    z-index: 9999;
+    flex-direction: row; /* Tata letak horizontal */
+    justify-content: center;
+  }
+
+  .showMenu {
+    right: 50px; /* Geser ikon tepat di sebelah kiri hamburger */
   }
 
   .iconWrapper {
     width: 72px;
     height: 72px;
-    margin: 0;
-    padding: 0;
-  }
-
-  .iconWrapper.active {
-    color: #ffffff; /* Warna teks putih saat aktif */
-    border-radius: 20px;
-  }
-
-  .icon {
-    margin-bottom: 0;
+    margin: 0 2px; /* Kurangi jarak antar ikon lebih kecil */
   }
 
   .text {
-    font-size: 10px;
+    display: none; /* Sembunyikan teks di mode mobile */
   }
 }
