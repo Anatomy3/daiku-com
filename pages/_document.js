@@ -6,11 +6,19 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          {/* Mengatur favicon */}
+          <link rel="icon" href="/daiku/logo.png" type="image/png" />
           
+          {/* Mengatur title default dan meta description */}
+          <title>Daiku | Design Interior & Exterior Pekanbaru</title>
+          <meta name="description" content="Daiku - Spesialis desain interior dan eksterior serta furniture berkualitas untuk rumah, kantor, dan usaha." />
+          
+          {/* Font Google Montserrat */}
           <link
             href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
             rel="stylesheet"
           />
+          {/* Font Awesome Icons */}
           <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
