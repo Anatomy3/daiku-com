@@ -15,17 +15,17 @@ const articles = [
   {
     id: "desain-interior-rumah-pekanbaru",
     title: "Desain Interior Rumah Minimalis oleh Daiku Interior Pekanbaru",
-    image: "/daiku/rumah/rumah (1).jpg",
+    image: "/daiku/rumah/rumah (4).jpg",
   },
   {
     id: "jasa-interior-kantor-pekanbaru",
     title: "Jasa Desain Interior Kantor oleh Daiku Interior Pekanbaru",
-    image: "/daiku/kantor/kantor (2).jpg",
+    image: "/daiku/kantor/kantor (25).jpg",
   },
   {
     id: "desain-kitchen-set-pekanbaru",
     title: "Desain Kitchen Set Modern oleh Daiku Interior Pekanbaru",
-    image: "/daiku/rumah/rumah (4).jpg",
+    image: "/daiku/rumah/rumah (29).jpg",
   },
   {
     id: "renovasi-rumah-dengan-interior-daiku",
