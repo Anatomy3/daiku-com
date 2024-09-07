@@ -1,23 +1,22 @@
-// pages/_document.js
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
           {/* Mengatur favicon */}
           <link rel="icon" href="/daiku/logo.png" type="image/png" />
-          
+
           {/* Mengatur title default dan meta description */}
-          <title>Daiku | Design Interior & Exterior Pekanbaru</title>
           <meta name="description" content="Daiku - Spesialis desain interior dan eksterior serta furniture berkualitas untuk rumah, kantor, dan usaha." />
-          
-          {/* Font Google Montserrat */}
+
+          {/* Font Google Montserrat dan Poppins */}
           <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;600&display=swap"
             rel="stylesheet"
           />
+
           {/* Font Awesome Icons */}
           <link
             rel="stylesheet"
