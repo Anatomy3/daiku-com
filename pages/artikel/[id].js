@@ -16,7 +16,7 @@ const articles = [
   {
     id: "desain-interior-rumah-pekanbaru",
     title: "Desain Interior Rumah Minimalis oleh Daiku Interior Pekanbaru",
-    image: "/daiku/rumah/rumah (1).jpg",
+    image: "/daiku/rumah/rumah (4).jpg",
     description: `
       Daiku Interior Pekanbaru mengkhususkan diri dalam desain interior rumah minimalis yang menggabungkan estetika modern dengan efisiensi ruang. Kami menawarkan solusi desain yang dirancang untuk memenuhi kebutuhan gaya hidup urban yang mengutamakan ruang yang bersih, lapang, dan fungsional.
       
@@ -28,7 +28,7 @@ const articles = [
   {
     id: "jasa-interior-kantor-pekanbaru",
     title: "Jasa Desain Interior Kantor oleh Daiku Interior Pekanbaru",
-    image: "/daiku/kantor/kantor (2).jpg",
+    image: "/daiku/kantor/kantor (25).jpg",
     description: `
       Daiku Interior Pekanbaru memahami bahwa lingkungan kantor yang dirancang dengan baik dapat meningkatkan produktivitas dan kenyamanan kerja. Kami menawarkan solusi desain interior kantor yang tidak hanya efisien secara fungsional tetapi juga menciptakan suasana kerja yang modern dan profesional.
       
@@ -40,7 +40,7 @@ const articles = [
   {
     id: "desain-kitchen-set-pekanbaru",
     title: "Desain Kitchen Set Modern oleh Daiku Interior Pekanbaru",
-    image: "/daiku/rumah/rumah (4).jpg",
+    image: "/daiku/rumah/rumah (29).jpg",
     description: `
       Dapur adalah jantung dari setiap rumah, dan Daiku Interior Pekanbaru hadir untuk membantu Anda menciptakan kitchen set yang modern, fungsional, dan elegan. Kami menawarkan desain yang disesuaikan dengan kebutuhan Anda, memaksimalkan penggunaan ruang dan penyimpanan tanpa mengorbankan gaya.
       
