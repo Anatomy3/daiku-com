@@ -80,17 +80,18 @@
 }
 
 .loadMore {
-  background-color: black;
+  background-color: #E9C13F; /* Ubah ke warna kuning sesuai dengan garis bawah gambar */
   color: white;
   border: none;
   border-radius: 8px;
   padding: 12px 24px;
   cursor: pointer;
   margin-top: 30px;
+  transition: background-color 0.3s ease;
 }
 
 .loadMore:hover {
-  background-color: #333333; /* Efek hover pada tombol Read More */
+  background-color: #c89f35; /* Efek hover, sedikit lebih gelap dari kuning utama */
 }
 
 /* Bagian untuk artikel detail */
