@@ -9,17 +9,20 @@ import Artikel from '../components/Artikel'; // Import Komponen Artikel
 
 export default function Home() {
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
-  
-  // Gunakan useRef untuk merujuk pada section Projects dan Artikel
+
+  // Gunakan useRef untuk merujuk pada section Projects, Artikel, dan Contact
   const projectsSectionRef = useRef(null);
   const artikelSectionRef = useRef(null); // Refs untuk Artikel
+  const contactSectionRef = useRef(null); // Refs untuk Contact
 
   // Fungsi untuk scroll ke bagian yang diinginkan
   const scrollToSection = (section) => {
     if (section === 'projectsSection') {
       projectsSectionRef.current.scrollIntoView({ behavior: 'smooth' });
-    } else if (section === 'artikelSection') { // Tambahkan bagian untuk scroll ke Artikel
+    } else if (section === 'artikelSection') {
       artikelSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    } else if (section === 'contactSection') { // Tambahkan bagian untuk scroll ke Contact
+      contactSectionRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -30,10 +33,11 @@ export default function Home() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', overflowX: 'hidden' }}>
       <div style={{ display: 'flex', flex: 1, overflowX: 'hidden' }}>
-        {/* Pass scrollToSection function ke Sidebar */}
+        {/* Pass scrollToSection function ke Sidebar dan About */}
         <Sidebar scrollToSection={scrollToSection} isManualExpanded={isSidebarExpanded} />
         <div className="content-wrapper">
           <style jsx global>{`
+            /* Custom scrollbar */
             ::-webkit-scrollbar {
               width: 12px;
               height: 12px;
@@ -88,8 +92,12 @@ export default function Home() {
               overflow-x: hidden;
             }
           `}</style>
+
+          {/* Halaman Utama dan bagian-bagian yang akan di-scroll */}
           <HomePage /> {/* Halaman HomePage */}
-          <About /> {/* Halaman About */}
+          
+          {/* Pass scrollToSection ke About */}
+          <About scrollToSection={scrollToSection} /> {/* Halaman About */}
           
           {/* Tambahkan ref ke bagian Projects */}
           <div ref={projectsSectionRef}>
@@ -101,7 +109,11 @@ export default function Home() {
             <Artikel /> {/* Section Artikel */}
           </div>
 
-          <Contact /> {/* Halaman Contact */}
+          {/* Tambahkan ref ke bagian Contact */}
+          <div ref={contactSectionRef}>
+            <Contact /> {/* Section Contact */}
+          </div>
+
           <Footer /> {/* Footer */}
         </div>
       </div>
