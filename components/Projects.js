@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../styles/Projects.module.css';
 
 const Projects = () => {
@@ -7,39 +7,41 @@ const Projects = () => {
   const [mainImage, setMainImage] = useState('/daiku/homepage.jpg'); 
   const [imagesPerSlide, setImagesPerSlide] = useState(15);
 
-  const projectsSectionRef = useRef(null); // Buat referensi untuk elemen projects
-
-  const handleDotClick = (index) => {
-    setCurrentSlide(index);
-  };
-
+  // Fungsi untuk mengubah slide berdasarkan kategori yang dipilih
   const handleCategoryChange = (category) => {
     setCurrentCategory(category);
-    setCurrentSlide(0); 
+    setCurrentSlide(0);
     setMainImage(`/daiku/${category}/${category} (1).jpg`);
   };
 
+  // Fungsi untuk mengubah gambar utama
   const handleImageClick = (imageUrl) => {
     setMainImage(imageUrl);
   };
 
+  // Fungsi untuk mengganti slide dengan dot navigation
+  const handleDotClick = (index) => {
+    setCurrentSlide(index);
+  };
+
+  // Data kategori dan gambar yang ditampilkan
   const categories = {
     rumah: Array.from({ length: 75 }, (_, index) => `/daiku/rumah/rumah (${index + 1}).jpg`),
     kantor: Array.from({ length: 47 }, (_, index) => `/daiku/kantor/kantor (${index + 1}).jpg`),
-    usaha: Array.from({ length: 151 }, (_, index) => `/daiku/usaha/usaha (${index + 1}).jpg`)
+    usaha: Array.from({ length: 151 }, (_, index) => `/daiku/usaha/usaha (${index + 1}).jpg`),
   };
 
+  // Mengatur jumlah gambar per slide berdasarkan lebar layar
   useEffect(() => {
     const updateImagesPerSlide = () => {
       if (window.innerWidth <= 768) {
-        setImagesPerSlide(12); 
+        setImagesPerSlide(12);
       } else {
-        setImagesPerSlide(15); 
+        setImagesPerSlide(15);
       }
     };
 
     updateImagesPerSlide();
-
     window.addEventListener('resize', updateImagesPerSlide);
 
     return () => {
@@ -47,6 +49,7 @@ const Projects = () => {
     };
   }, []);
 
+  // Menghitung gambar yang tampil pada slide saat ini
   const currentImages = categories[currentCategory].slice(
     currentSlide * imagesPerSlide,
     (currentSlide + 1) * imagesPerSlide
@@ -78,14 +81,14 @@ const Projects = () => {
         </div>
       </aside>
 
-      {/* Gunakan ref untuk bagian Projects */}
-      <div ref={projectsSectionRef} className={styles.mainContent}>
+      <div className={styles.mainContent}>
         <img src={mainImage} alt="Main Content" className={`${styles.mainImage} ${styles.largeImage}`} />
-
         <div className={styles.description}>
           <h2>Cara Baru untuk</h2>
           <h3>Mendesain Rumah Anda</h3>
-          <p>Kami menghilangkan kesalahpahaman terbesar tentang perencanaan dan desain rumah yang efisien dan estetis.</p>
+          <p>
+            Kami menghilangkan kesalahpahaman terbesar tentang perencanaan dan desain rumah yang efisien dan estetis.
+          </p>
         </div>
 
         <div className={styles.photoGallery}>
