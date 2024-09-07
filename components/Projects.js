@@ -4,8 +4,8 @@ import styles from '../styles/Projects.module.css';
 const Projects = () => {
   const [currentCategory, setCurrentCategory] = useState('rumah');
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [mainImage, setMainImage] = useState('/daiku/homepage.jpg'); // Inisialisasi gambar besar
-  const [imagesPerSlide, setImagesPerSlide] = useState(15); // Default 15 untuk desktop
+  const [mainImage, setMainImage] = useState('/daiku/homepage.jpg'); 
+  const [imagesPerSlide, setImagesPerSlide] = useState(15);
 
   const projectsSectionRef = useRef(null); // Buat referensi untuk elemen projects
 
@@ -15,12 +15,12 @@ const Projects = () => {
 
   const handleCategoryChange = (category) => {
     setCurrentCategory(category);
-    setCurrentSlide(0); // Reset ke slide pertama saat kategori berubah
-    setMainImage(`/daiku/${category}/${category} (1).jpg`); // Ubah gambar besar sesuai kategori yang dipilih
+    setCurrentSlide(0); 
+    setMainImage(`/daiku/${category}/${category} (1).jpg`);
   };
 
   const handleImageClick = (imageUrl) => {
-    setMainImage(imageUrl); // Set mainImage sesuai URL gambar yang diklik
+    setMainImage(imageUrl);
   };
 
   const categories = {
@@ -29,23 +29,19 @@ const Projects = () => {
     usaha: Array.from({ length: 151 }, (_, index) => `/daiku/usaha/usaha (${index + 1}).jpg`)
   };
 
-  // Menyesuaikan jumlah gambar per slide berdasarkan ukuran layar
   useEffect(() => {
     const updateImagesPerSlide = () => {
       if (window.innerWidth <= 768) {
-        setImagesPerSlide(12); // 12 gambar untuk mobile
+        setImagesPerSlide(12); 
       } else {
-        setImagesPerSlide(15); // 15 gambar untuk desktop
+        setImagesPerSlide(15); 
       }
     };
 
-    // Panggil fungsi saat pertama kali komponen di-mount
     updateImagesPerSlide();
 
-    // Tambahkan event listener untuk menyesuaikan jumlah gambar saat ukuran layar berubah
     window.addEventListener('resize', updateImagesPerSlide);
 
-    // Bersihkan event listener saat komponen di-unmount
     return () => {
       window.removeEventListener('resize', updateImagesPerSlide);
     };
@@ -59,7 +55,6 @@ const Projects = () => {
 
   return (
     <div className={styles.projectsPage}>
-      {/* Sidebar */}
       <aside className={styles.sidebar}>
         <div className={styles.imageGrid}>
           {currentImages.map((src, index) => (
@@ -67,7 +62,7 @@ const Projects = () => {
               key={index}
               src={src}
               alt={`Image ${index + 1}`}
-              onClick={() => handleImageClick(src)} // Memastikan mainImage diperbarui saat diklik
+              onClick={() => handleImageClick(src)}
               className={styles.sidebarImage}
             />
           ))}
@@ -83,18 +78,16 @@ const Projects = () => {
         </div>
       </aside>
 
-      {/* Main Content */}
-      <div className={styles.mainContent}>
-        <img src={mainImage} alt="Main Content" className={`${styles.mainImage} ${styles.largeImage}`} /> {/* Menampilkan gambar utama */}
+      {/* Gunakan ref untuk bagian Projects */}
+      <div ref={projectsSectionRef} className={styles.mainContent}>
+        <img src={mainImage} alt="Main Content" className={`${styles.mainImage} ${styles.largeImage}`} />
 
-        {/* Deskripsi */}
         <div className={styles.description}>
           <h2>Cara Baru untuk</h2>
           <h3>Mendesain Rumah Anda</h3>
           <p>Kami menghilangkan kesalahpahaman terbesar tentang perencanaan dan desain rumah yang efisien dan estetis.</p>
         </div>
 
-        {/* Galeri Foto */}
         <div className={styles.photoGallery}>
           <div className={styles.photos}>
             <div className={styles.photoItem}>

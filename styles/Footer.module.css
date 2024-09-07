@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-top: 4px solid #E9C13F; /* Garis di atas footer */
+  border-top: 4px solid #E9C13F;
 }
 
 .footerBottom {
@@ -18,7 +18,7 @@
 }
 
 .footerLogo {
-  width: 100px; /* Sesuaikan ukuran logo */
+  width: 100px;
   margin-right: 20px;
 }
 
@@ -26,7 +26,7 @@
   margin: 0;
   flex: 1;
   text-align: center;
-  color: #DCDCDC; /* Warna teks tetap konsisten dengan tema Anda */
+  color: #DCDCDC;
 }
 
 .socialIcons {
@@ -36,26 +36,47 @@
 }
 
 .socialIcons a {
-  color: #1a1a1a; /* Warna ikon */
+  color: #1a1a1a;
   font-size: 18px;
   text-decoration: none;
-  width: 40px; /* Lebar dan tinggi untuk lingkaran */
+  width: 40px;
   height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #E9C13F; /* Warna latar belakang bulat */
-  border-radius: 50%; /* Membuat elemen menjadi lingkaran */
+  background-color: #E9C13F;
+  border-radius: 50%;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .socialIcons a:hover {
-  background-color: #ffc107; /* Efek hover dengan warna aksen */
-  color: #fff; /* Warna ikon saat hover menjadi putih */
+  background-color: #ffc107;
+  color: #fff;
 }
 
-/* Styling untuk gambar ikon Threads */
 .iconImage {
   width: 18px;
   height: 18px;
+}
+
+/* Media query untuk mobile */
+@media (max-width: 768px) {
+  .footerBottom {
+    flex-direction: column; /* Ubah arah flex menjadi kolom */
+    align-items: center; /* Pusatkan elemen */
+    text-align: center; /* Pusatkan teks */
+  }
+
+  .footerLogo {
+    margin-bottom: 10px; /* Tambahkan jarak antara logo dan teks */
+  }
+
+  /* Sembunyikan social icons di mode mobile */
+  .socialIcons {
+    display: none; /* Sembunyikan ikon sosial */
+  }
+
+  .footerBottom p {
+    margin-top: 10px; /* Tambahkan margin di atas teks copyright */
+  }
 }

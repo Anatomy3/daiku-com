@@ -274,6 +274,7 @@
     .aboutPage {
       flex-direction: column; /* Ubah ke arah kolom untuk semua komponen */
       align-items: center;
+      justify-content: center; /* Pastikan semua elemen berada di tengah vertikal */
       text-align: center;
       height: auto;
       padding: 20px;
@@ -282,7 +283,7 @@
     /* Untuk komponen kedua khusus */
     .aboutPage:nth-child(2) {
       display: flex;
-      flex-direction: column; /* Pastikan arah layoutnya kolom */
+      flex-direction: column;
     }
   
     /* Atur gambar tetap di atas teks untuk komponen kedua */
@@ -292,7 +293,7 @@
   
     .imageContainer {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       gap: 10px;
       width: 100%; /* Lebar penuh untuk container gambar */
       padding: 0;
@@ -307,7 +308,11 @@
     .textContainer {
       width: 100%;
       padding: 20px;
-      text-align: center;
+      text-align: center; /* Pastikan teks di tengah */
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Posisikan teks vertikal di tengah */
+      align-items: center; /* Posisikan teks horizontal di tengah */
     }
   
     .textContainer h1 {

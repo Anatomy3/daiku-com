@@ -1,20 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../styles/Sidebar.module.css';
 import { useRouter } from 'next/router';
 
 const Sidebar = ({ scrollToSection }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State untuk mengontrol tampilan menu
   const router = useRouter();
 
   const handleClick = (path, section = null) => {
-    if (router.pathname === '/') {
-      scrollToSection(section); // Scroll ke bagian Projects jika di halaman beranda
+    if (path === '/' && section === 'projectsSection') {
+      // Scroll ke bagian Projects di halaman yang sama
+      scrollToSection('projectsSection');
+    } else if (router.pathname === '/') {
+      // Jika di halaman home, scroll ke bagian tertentu
+      scrollToSection(section);
     } else {
-      // Kirim status 'projectsSection' sebagai query parameter saat redirect ke beranda
+      // Jika di halaman lain, navigasi ke path yang diberikan
       router.push({
         pathname: path,
-        query: section ? { section } : {} // Menyimpan informasi bagian untuk scroll setelah halaman berubah
+        query: section ? { section } : {},
       });
     }
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen); // Toggle state menu terbuka atau tertutup
   };
 
   return (
@@ -24,27 +33,38 @@ const Sidebar = ({ scrollToSection }) => {
         <img src="/daiku/logo.png" alt="Daiku Logo" className={styles.logo} />
       </div>
 
-      {/* Container untuk tombol */}
-      <div className={styles.iconContainer}>
+      {/* Ikon 3 garis (Hamburger menu) hanya di mobile */}
+      <div className={styles.hamburgerIcon} onClick={toggleMenu}>
+        <i className="fas fa-bars"></i> {/* Ikon 3 garis */}
+      </div>
+
+      {/* Container untuk tombol, tampilkan jika isMenuOpen true */}
+      <div className={`${styles.iconContainer} ${isMenuOpen ? styles.showMenu : ''}`}>
         <div
           className={`${styles.iconWrapper} ${router.pathname === '/' ? styles.active : ''}`}
           onClick={() => handleClick('/')}
         >
-          <i className={`${styles.icon} fas fa-home`}></i>
+          <div className={styles.iconBackground}>
+            <i className={`${styles.icon} fas fa-home`}></i>
+          </div>
           <span className={styles.text}>Beranda</span>
         </div>
         <div
           className={`${styles.iconWrapper} ${router.pathname === '/' ? styles.active : ''}`}
-          onClick={() => handleClick('/', 'projectsSection')} // Kirim informasi 'projectsSection' di sini
+          onClick={() => handleClick('/', 'projectsSection')}  // Scroll ke bagian Projects
         >
-          <i className={`${styles.icon} fas fa-briefcase`}></i>
+          <div className={styles.iconBackground}>
+            <i className={`${styles.icon} fas fa-briefcase`}></i>
+          </div>
           <span className={styles.text}>Projects</span>
         </div>
         <div
           className={`${styles.iconWrapper} ${router.pathname === '/contact' ? styles.active : ''}`}
           onClick={() => handleClick('/contact')}
         >
-          <i className={`${styles.icon} fas fa-envelope`}></i>
+          <div className={styles.iconBackground}>
+            <i className={`${styles.icon} fas fa-envelope`}></i>
+          </div>
           <span className={styles.text}>Contact</span>
         </div>
       </div>

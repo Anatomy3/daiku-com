@@ -19,7 +19,11 @@ const HomePage = () => {
             <span className={styles.highlight}>Inter</span>ior design
           </h1>
           <p>Kami akan menciptakan desain interior yang paling sesuai untuk rumah, bisnis, dan kantor Anda. Dapatkan tampilan interior yang benar-benar baru.</p>
-          <a href="#" className={styles.learnMore}>Learn More</a>
+          
+          {/* Ganti tautan Learn More dengan WhatsApp */}
+          <a href="https://wa.me/628117597766" target="_blank" className={styles.whatsappLink} rel="noopener noreferrer">
+            <i className="fab fa-whatsapp"></i> Hubungi
+          </a>
         </div>
         <div className={styles.socialIcons}>
           <a href="https://www.tiktok.com/@d.a.i.ku.pekanbaru?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer">
@@ -33,7 +37,7 @@ const HomePage = () => {
           </a>
         </div>
       </aside>
-      
+
       {/* Section yang akan discroll */}
       <div className={styles.mainImage} ref={scrollToRef}>
         <div className={styles.imageOverlay}>

@@ -146,6 +146,28 @@
   margin: 5px 0 0;
   font-size: 14px;
 }
+/* Gaya untuk link WhatsApp */
+.whatsappLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px; /* Jarak antara ikon dan teks */
+  text-decoration: none;
+  color: #DCDCDC;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #25D366; /* Warna hijau khas WhatsApp */
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.whatsappLink i {
+  font-size: 24px; /* Ukuran ikon WhatsApp */
+}
+
+.whatsappLink:hover {
+  background-color: #1EBE55; /* Warna hijau lebih gelap saat hover */
+}
 
 @media only screen and (max-width: 768px) {
   .homepage {
@@ -155,12 +177,16 @@
 
   .sidebar {
     width: 100%;
-    padding: 20px;
+    padding: 80px;
     text-align: center;
   }
 
+  .logo {
+    display: none; /* Hapus logo pada mode mobile */
+  }
+
   .mainContent {
-    margin-top: 20px;
+    margin-top: 0px;
     text-align: center;
   }
 
@@ -190,24 +216,31 @@
   }
 
   .imageOverlay img {
-    height: 300px;
+    height: 320px;
     object-fit: cover;
   }
 
+  /* Geser teks ke kiri */
   .textOverlay {
-    flex-direction: column;
-    padding: 10px 0;
+    display: flex;
+    justify-content: flex-start; /* Pindahkan elemen judul ke kiri */
+    align-items: center;
+    padding: 10px 20px; /* Tambahkan padding kiri */
+    background: rgba(0, 0, 0, 0.4);
   }
 
   .textItem {
-    margin-bottom: 10px;
+    margin: 0 10px;
+    text-align: left; /* Teks rata kiri */
+    color: #DCDCDC;
   }
 
   .textItem h3 {
-    font-size: 16px;
+    font-size: 13px;
   }
 
+  /* Sembunyikan paragraf di bawah judul hanya di mode mobile */
   .textItem p {
-    font-size: 12px;
+    display: none;
   }
 }

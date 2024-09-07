@@ -1,7 +1,7 @@
 .sidebar {
   width: 72px;
   height: 100vh;
-  background-color: #FFDC7F; /* Ubah warna sidebar menjadi #FFDC7F */
+  background-color: #FFDC7F;
   position: fixed;
   top: 0;
   left: 0;
@@ -21,97 +21,147 @@
 .iconContainer {
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* Geser tombol ke kanan */
-  justify-content: center;
-  flex-grow: 1;
-}
-
-.iconWrapper {
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 72px;
-  height: 72px;
-  margin: 10px 0;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  box-sizing: border-box;
-  cursor: pointer;
 }
 
-.icon {
-  font-size: 24px;
-  color: #1a1a1a; /* Warna tombol menjadi #1a1a1a */
-  margin-bottom: 5px;
-}
-
-.iconWrapper.active {
-  color: #ffffff; /* Warna teks putih saat aktif */
-  border-radius: 8px;
-  padding: 10px 0;
-}
-
-.iconWrapper:hover {
-  background-color: #E8EAED;
-  border-radius: 8px;
-}
-
-.text {
-  font-size: 12px;
-  color: #1a1a1a; /* Warna teks menjadi #1a1a1a */
-  text-align: center;
-}
-
-/* Media Query for Mobile */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-    height: 72px;
-    position: fixed;
-    top: 0; /* Pindahkan sidebar ke bagian atas */
-    left: 0;
-    flex-direction: row;
-    padding: 0;
-    background-color: #FFDC7F; /* Pastikan background tetap sama di mobile */
-    border-radius: 0 0 30px 30px; /* Membulatkan sudut bawah saja */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    justify-content: space-between; /* Membuat logo dan tombol di tempat masing-masing */
-  }
-
-  .logoContainer {
-    display: flex; /* Tampilkan logo hanya di mobile */
-    justify-content: center;
-    margin-left: 20px; /* Berikan jarak antara logo dan tombol */
-  }
-
-  .logo {
-    width: 40px; /* Ukuran logo */
-    height: auto;
-  }
-
+/* Styling khusus desktop (lebih dari 768px) */
+@media (min-width: 769px) {
   .iconContainer {
-    flex-direction: row;
-    justify-content: flex-end; /* Geser tombol ke kanan pada mobile */
-    width: 100%;
+    position: fixed;
+    top: 50%; /* Posisikan di tengah secara vertikal */
+    left: 0; /* Tempatkan di kiri */
+    transform: translateY(-50%); /* Pusatkan secara vertikal */
+    transition: left 0.5s ease-in-out;
   }
 
   .iconWrapper {
-    width: 72px;
-    height: 72px;
-    margin: 0;
-    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 72px; /* Ukuran normal untuk tombol */
+    margin: 10px 0; /* Jarak antar ikon */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: transparent; /* Pastikan latar belakang transparan */
   }
 
-  .iconWrapper.active {
-    color: #ffffff; /* Warna teks putih saat aktif */
-    border-radius: 20px;
+  .iconBackground {
+    background-color: #FFDC7F; /* Warna latar belakang bulat */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    box-shadow: none; /* Hapus bayangan yang tidak perlu */
+    outline: none; /* Hapus outline */
   }
 
   .icon {
-    margin-bottom: 0;
+    font-size: 24px;
+    color: #1a1a1a; /* Warna hitam untuk ikon */
+  }
+
+  .iconWrapper:hover, .iconWrapper.active {
+    background-color: transparent; /* Hapus latar abu-abu pada hover/active */
+    color: #1a1a1a; /* Tetap warna hitam pada hover */
   }
 
   .text {
-    font-size: 10px;
+    font-size: 12px; /* Ukuran teks normal */
+    color: #1a1a1a;
+    text-align: center;
+  }
+
+  /* Sembunyikan ikon hamburger di desktop */
+  .hamburgerIcon {
+    display: none;
+  }
+}
+
+/* Media Query untuk Mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%; /* Sidebar mengambil lebar penuh layar */
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    flex-direction: row;
+    padding: 0;
+    background-color: #FFDC7F;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+  }
+
+  .logoContainer {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 10px;
+  }
+
+  .logo {
+    width: 90px;
+    height: auto;
+  }
+
+  .hamburgerIcon {
+    display: block; /* Tampilkan hamburger icon hanya di mobile */
+    padding-right: 10px;
+    margin-right: 10px;
+    font-size: 28px;
+    color: #1a1a1a;
+    cursor: pointer;
+  }
+
+  .iconContainer {
+    position: fixed;
+    top: 72px;
+    right: -250px; /* Awalnya tersembunyi di luar layar */
+    width: auto;
+    background-color: transparent; /* Hapus background kuning */
+    transition: right 0.5s ease-in-out;
+    z-index: 9999;
+    flex-direction: column; /* Tata letak vertikal */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .showMenu {
+    right: -15px; /* Geser ikon tepat di bawah hamburger */
+  }
+
+  .iconWrapper {
+    width: 72px; /* Kembali ke ukuran normal */
+    margin: 5px 0; /* Jarak antar ikon */
+  }
+
+  .iconBackground {
+    background-color: #FFDC7F; /* Warna latar belakang bulat */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    box-shadow: none; /* Hapus bayangan */
+    outline: none; /* Hapus outline */
+  }
+
+  .icon {
+    font-size: 24px;
+    color: #1a1a1a; /* Warna ikon hitam */
+  }
+
+  .text {
+    display: block; /* Tampilkan teks di bawah ikon */
+    font-size: 12px;
+    color: #ffffff;
   }
 }
