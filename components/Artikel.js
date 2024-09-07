@@ -15,32 +15,32 @@ const articles = [
   {
     id: "desain-interior-rumah-pekanbaru",
     title: "Desain Interior Rumah Minimalis oleh Daiku Interior Pekanbaru",
-    image: "daiku/rumah/rumah (1).jpg",
+    image: "/daiku/rumah/rumah (1).jpg",
   },
   {
     id: "jasa-interior-kantor-pekanbaru",
     title: "Jasa Desain Interior Kantor oleh Daiku Interior Pekanbaru",
-    image: "daiku/kantor/kantor (2).jpg",
+    image: "/daiku/kantor/kantor (2).jpg",
   },
   {
     id: "desain-kitchen-set-pekanbaru",
     title: "Desain Kitchen Set Modern oleh Daiku Interior Pekanbaru",
-    image: "daiku/rumah/rumah (4).jpg",
+    image: "/daiku/rumah/rumah (4).jpg",
   },
   {
     id: "renovasi-rumah-dengan-interior-daiku",
     title: "Renovasi Rumah dengan Sentuhan Interior Daiku Pekanbaru",
-    image: "daiku/rumah/rumah (6).jpg",
+    image: "/daiku/rumah/rumah (6).jpg",
   },
   {
     id: "desain-showroom-toko-pekanbaru",
     title: "Desain Showroom dan Toko di Pekanbaru oleh Daiku Interior",
-    image: "daiku/usaha/usaha (7).jpg",
+    image: "/daiku/usaha/usaha (7).jpg",
   },
   {
     id: "konsultan-interior-berpengalaman-pekanbaru",
     title: "Konsultan Interior Berpengalaman di Pekanbaru oleh Daiku",
-    image: "daiku/rumah/rumah (2).jpg",
+    image: "/daiku/rumah/rumah (2).jpg",
   },
 ];
 
@@ -58,7 +58,7 @@ export default function Artikel() {
       <div className={styles.container}>
         <div className={styles.grid}>
           {articles.slice(0, visibleArticles).map((article) => (
-            <Link key={article.id} href={`/artikel/${article.id}`}>
+            <Link key={article.id} href={`/artikel/${article.id}`} className={styles.link}>
               <div className={styles.card}>
                 <img src={article.image} alt={article.title} className={styles.image} />
                 <div className={styles.content}>
