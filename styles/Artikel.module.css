@@ -40,36 +40,43 @@
 }
 
 .card:hover {
-  transform: translateY(-8px); /* Efek hover tetap ada, kartu sedikit naik */
+  transform: translateY(-8px); /* Sedikit naik saat hover */
 }
 
 .image {
   width: 100%;
-  height: 200px; /* Ukuran gambar tetap proporsional */
+  height: 200px;
   object-fit: cover;
-  border-bottom: 4px solid #E9C13F;
+  border-bottom: 4px solid #E9C13F; /* Warna border bawah gambar */
 }
 
 .content {
-  padding: 16px; /* Padding kecil untuk konten */
+  padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start; /* Pastikan konten rata kiri */
+  align-items: flex-start; /* Rata kiri konten */
 }
 
 .date {
-  font-size: 28px;
+  font-family: 'Poppins', sans-serif; /* Terapkan font Poppins pada tanggal */
+  font-size: 20px;
   color: #888888;
-  margin-bottom: 8px;
-  text-align: left; /* Rata kiri */
+  margin-bottom: 0;
+  text-align: left;
 }
 
 .title {
-  font-size: 32px;
+  font-family: 'Poppins', sans-serif; /* Terapkan font Poppins pada judul */
+  font-size: 24px;
   font-weight: 600;
   color: #000000;
-  text-align: left; /* Rata kiri */
+  text-align: left;
+  margin-top: 5px;
+}
+
+.link {
+  text-decoration: none;
 }
 
 .loadMore {
@@ -83,118 +90,42 @@
 }
 
 .loadMore:hover {
-  background-color: #333333;
+  background-color: #333333; /* Efek hover pada tombol Read More */
 }
 
-/* Responsif: Untuk mobile */
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
-    justify-items: center;
-  }
-
-  .card {
-    max-width: 100%;
-  }
-
-  .image {
-    height: 150px; /* Gambar lebih kecil pada mobile */
-  }
-
-  .title {
-    font-size: 28px;
-  }
-
-  .date {
-    font-size: 24px;
-  }
-}
-
-/* Detail Artikel */
+/* Bagian untuk artikel detail */
 .detailContainer {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 30px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  text-align: left; /* Rata kiri untuk seluruh artikel */
-  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: left;
+  background-color: white;
 }
 
 .detailTitle {
-  font-size: 48px;
-  font-weight: bold;
+  font-size: 36px;
   color: #000000;
-  margin-bottom: 20px;
-  text-align: left; /* Judul rata kiri */
+  margin-bottom: 16px;
+  font-family: 'Poppins', sans-serif; /* Font untuk judul detail artikel */
 }
 
 .detailDate {
-  font-size: 24px;
+  font-size: 20px;
   color: #888888;
-  margin-bottom: 30px;
-  text-align: left; /* Tanggal rata kiri */
+  margin-bottom: 20px;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif; /* Font untuk tanggal detail artikel */
 }
 
 .detailImage {
   width: 100%;
   height: auto;
-  max-height: 500px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .detailDescription {
-  font-size: 22px;
+  font-size: 18px;
+  line-height: 1.6;
   color: #666666;
-  line-height: 1.8;
-  text-align: left; /* Deskripsi rata kiri */
-  margin-bottom: 40px;
-}
-
-/* Tombol Kembali di sudut kiri atas */
-.backButton {
-  background-color: #0070f3;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 8px;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  margin: 0;
-  transform: translate(-20px, -20px); /* Geser tombol lebih jauh ke kiri dan atas */
-}
-
-.backButton:hover {
-  background-color: #005bb5;
-}
-
-/* Responsif untuk mobile */
-@media (max-width: 768px) {
-  .detailContainer {
-    padding: 20px;
-  }
-
-  .detailTitle {
-    font-size: 36px;
-  }
-
-  .detailDate {
-    font-size: 20px;
-  }
-
-  .detailDescription {
-    font-size: 18px;
-  }
-
-  .backButton {
-    padding: 10px 20px;
-    top: 0;
-    left: 0;
-    transform: translate(-10px, -10px); /* Geser sedikit di mobile */
-  }
+  font-family: 'Montserrat', sans-serif; /* Gunakan Montserrat untuk deskripsi */
 }
