@@ -15,7 +15,7 @@
   align-items: center;
 }
 
-.videoWrapper {
+.imageWrapper, .video {
   position: relative;
   width: calc(50% - 7.5px);
   height: 70vh;
@@ -23,19 +23,7 @@
 }
 
 .video {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.video.loaded {
-  opacity: 1;
-}
-
-.hidden {
-  display: none;
 }
 
 .textContainer {
@@ -103,7 +91,7 @@
     padding: 10px;
   }
 
-  .videoWrapper {
+  .imageWrapper, .video {
     width: calc(50% - 5px);
     height: 40vh;
   }
