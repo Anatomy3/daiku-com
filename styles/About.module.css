@@ -11,12 +11,12 @@
   display: flex;
   gap: 15px;
   overflow: hidden;
-  padding-left: 20px;
+  padding: 20px;
   align-items: center;
 }
 
 .video {
-  width: calc(45% - 7.5px);
+  width: calc(50% - 7.5px);
   height: 70vh;
   object-fit: cover;
   opacity: 0;
@@ -84,23 +84,17 @@
   }
 
   .aboutPage:nth-child(2) {
-    flex-direction: column;
-  }
-
-  .aboutPage:nth-child(2) .imageContainer {
-    order: -1;
+    flex-direction: column-reverse;
   }
 
   .imageContainer {
-    justify-content: center;
-    gap: 10px;
     width: 100%;
-    padding: 0;
+    padding: 10px;
   }
 
   .video {
-    width: 48%;
-    height: auto;
+    width: calc(50% - 5px);
+    height: 40vh;
   }
 
   .textContainer {
@@ -115,6 +109,7 @@
 
   .textContainer p {
     font-size: 14px;
+    max-width: 100%;
   }
 
   .exploreButton {
