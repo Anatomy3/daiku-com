@@ -11,40 +11,26 @@ const videoData = [
   { src: '/daiku/about/6.mp4', poster: '/daiku/about/poster6.jpg' },
 ];
 
-const VideoWithPoster = ({ src, poster }) => {
-  const videoRef = useRef(null);
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-
+const VideoOrImage = ({ src, poster }) => {
+  const [isClient, setIsClient] = useState(false);
+  
   useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      video.addEventListener('loadeddata', () => setIsVideoLoaded(true));
-      return () => video.removeEventListener('loadeddata', () => setIsVideoLoaded(true));
-    }
+    setIsClient(true);
   }, []);
 
+  if (!isClient) {
+    return (
+      <div className={styles.imageWrapper}>
+        <Image src={poster} alt="Video poster" layout="fill" objectFit="cover" />
+      </div>
+    );
+  }
+
   return (
-    <div className={styles.videoWrapper}>
-      <Image
-        src={poster}
-        alt="Video poster"
-        layout="fill"
-        objectFit="cover"
-        priority
-        className={isVideoLoaded ? styles.hidden : ''}
-      />
-      <video
-        ref={videoRef}
-        className={`${styles.video} ${isVideoLoaded ? styles.loaded : ''}`}
-        muted
-        loop
-        playsInline
-        poster={poster}
-      >
-        <source src={src} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
+    <video className={styles.video} autoPlay loop muted playsInline poster={poster}>
+      <source src={src} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
   );
 };
 
@@ -54,8 +40,8 @@ const About = ({ scrollToSection }) => {
       {/* Komponen pertama: Studio Arsitek */}
       <div className={styles.aboutPage}>
         <div className={styles.imageContainer}>
-          <VideoWithPoster {...videoData[0]} />
-          <VideoWithPoster {...videoData[1]} />
+          <VideoOrImage {...videoData[0]} />
+          <VideoOrImage {...videoData[1]} />
         </div>
         <div className={styles.textContainer}>
           <h1>STUDIO ARSITEK</h1>
@@ -72,16 +58,16 @@ const About = ({ scrollToSection }) => {
           <p>Dari proses pembuatan hingga instalasi di lapangan, kami selalu berkomitmen pada kualitas dan presisi.</p>
         </div>
         <div className={styles.imageContainer}>
-          <VideoWithPoster {...videoData[2]} />
-          <VideoWithPoster {...videoData[3]} />
+          <VideoOrImage {...videoData[2]} />
+          <VideoOrImage {...videoData[3]} />
         </div>
       </div>
 
       {/* Komponen ketiga: Hasil */}
       <div className={styles.aboutPage}>
         <div className={styles.imageContainer}>
-          <VideoWithPoster {...videoData[4]} />
-          <VideoWithPoster {...videoData[5]} />
+          <VideoOrImage {...videoData[4]} />
+          <VideoOrImage {...videoData[5]} />
         </div>
         <div className={styles.textContainer}>
           <h1>RENOVASI</h1>
