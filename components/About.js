@@ -1,51 +1,61 @@
 import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import styles from '../styles/About.module.css';
 
-const videoUrls = [
-  '/daiku/about/1.mp4',
-  '/daiku/about/2.mp4',
-  '/daiku/about/3.mp4',
-  '/daiku/about/4.mp4',
-  '/daiku/about/5.mp4',
-  '/daiku/about/6.mp4'
+const videoData = [
+  { src: '/daiku/about/1.mp4', poster: '/daiku/about/poster1.jpg' },
+  { src: '/daiku/about/2.mp4', poster: '/daiku/about/poster2.jpg' },
+  { src: '/daiku/about/3.mp4', poster: '/daiku/about/poster3.jpg' },
+  { src: '/daiku/about/4.mp4', poster: '/daiku/about/poster4.jpg' },
+  { src: '/daiku/about/5.mp4', poster: '/daiku/about/poster5.jpg' },
+  { src: '/daiku/about/6.mp4', poster: '/daiku/about/poster6.jpg' },
 ];
 
-const About = ({ scrollToSection }) => {
-  const videoRefs = useRef([]);
-  const [videosLoaded, setVideosLoaded] = useState(Array(videoUrls.length).fill(false));
+const VideoWithPoster = ({ src, poster }) => {
+  const videoRef = useRef(null);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   useEffect(() => {
-    videoRefs.current.forEach((video, index) => {
-      if (video) {
-        video.src = videoUrls[index];
-        video.load();
-        video.onloadeddata = () => {
-          setVideosLoaded(prev => {
-            const newState = [...prev];
-            newState[index] = true;
-            return newState;
-          });
-        };
-        video.play().catch(error => console.error("Error memutar video:", error));
-      }
-    });
+    const video = videoRef.current;
+    if (video) {
+      video.addEventListener('loadeddata', () => setIsVideoLoaded(true));
+      return () => video.removeEventListener('loadeddata', () => setIsVideoLoaded(true));
+    }
   }, []);
 
+  return (
+    <div className={styles.videoWrapper}>
+      <Image
+        src={poster}
+        alt="Video poster"
+        layout="fill"
+        objectFit="cover"
+        priority
+        className={isVideoLoaded ? styles.hidden : ''}
+      />
+      <video
+        ref={videoRef}
+        className={`${styles.video} ${isVideoLoaded ? styles.loaded : ''}`}
+        muted
+        loop
+        playsInline
+        poster={poster}
+      >
+        <source src={src} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  );
+};
+
+const About = ({ scrollToSection }) => {
   return (
     <div>
       {/* Komponen pertama: Studio Arsitek */}
       <div className={styles.aboutPage}>
         <div className={styles.imageContainer}>
-          {[0, 1].map((index) => (
-            <video 
-              key={index}
-              ref={el => videoRefs.current[index] = el}
-              className={`${styles.video} ${videosLoaded[index] ? styles.loaded : ''}`}
-              muted 
-              loop 
-              playsInline
-            />
-          ))}
+          <VideoWithPoster {...videoData[0]} />
+          <VideoWithPoster {...videoData[1]} />
         </div>
         <div className={styles.textContainer}>
           <h1>STUDIO ARSITEK</h1>
@@ -62,32 +72,16 @@ const About = ({ scrollToSection }) => {
           <p>Dari proses pembuatan hingga instalasi di lapangan, kami selalu berkomitmen pada kualitas dan presisi.</p>
         </div>
         <div className={styles.imageContainer}>
-          {[2, 3].map((index) => (
-            <video 
-              key={index}
-              ref={el => videoRefs.current[index] = el}
-              className={`${styles.video} ${videosLoaded[index] ? styles.loaded : ''}`}
-              muted 
-              loop 
-              playsInline
-            />
-          ))}
+          <VideoWithPoster {...videoData[2]} />
+          <VideoWithPoster {...videoData[3]} />
         </div>
       </div>
 
       {/* Komponen ketiga: Hasil */}
       <div className={styles.aboutPage}>
         <div className={styles.imageContainer}>
-          {[4, 5].map((index) => (
-            <video 
-              key={index}
-              ref={el => videoRefs.current[index] = el}
-              className={`${styles.video} ${videosLoaded[index] ? styles.loaded : ''}`}
-              muted 
-              loop 
-              playsInline
-            />
-          ))}
+          <VideoWithPoster {...videoData[4]} />
+          <VideoWithPoster {...videoData[5]} />
         </div>
         <div className={styles.textContainer}>
           <h1>RENOVASI</h1>
